@@ -15,12 +15,12 @@ void send_command(unsigned char data)
 void lcd_putchar(unsigned char data)
 {
   HAL_Delay(T);
-  HAL_GPIO_WritePin(CTRL_PORT,(1<<RS_PIN_NUMBER),GPIO_PIN_SET);
-  HAL_GPIO_WritePin(CTRL_PORT,(1<<RW_PIN_NUMBER),GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(DATA_PORT,(0xFF<<D0_PIN_NUMBER),GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(DATA_PORT,(data<<D0_PIN_NUMBER),GPIO_PIN_SET);
-  HAL_GPIO_WritePin(CTRL_PORT,(1<<E_PIN_NUMBER),GPIO_PIN_SET);
-  HAL_GPIO_WritePin(CTRL_PORT,(1<<E_PIN_NUMBER),GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(CTRL_PORT,(1<<rs_port),GPIO_PIN_SET);
+  HAL_GPIO_WritePin(CTRL_PORT,(1<<rw_port),GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(DATA_PORT,(0xFF<<data_ports[0]),GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(DATA_PORT,(data<<data_ports[0]),GPIO_PIN_SET);
+  HAL_GPIO_WritePin(CTRL_PORT,(1<<en_port),GPIO_PIN_SET);
+  HAL_GPIO_WritePin(CTRL_PORT,(1<<en_port),GPIO_PIN_RESET);
 }
 
 void lcd_init(void)
