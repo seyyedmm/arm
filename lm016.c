@@ -25,7 +25,7 @@ void lcd_putchar(unsigned char data)
 
 void lcd_init(void)
 {
-  HAL_Delay(T);
+  HAL_Delay(40);
   send_command(0x38);
   send_command(0x06);
   send_command(0x0c);
