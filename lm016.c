@@ -14,7 +14,7 @@ void send_command(unsigned char data)
 
 void lcd_putchar(unsigned char data)
 {
-  HAL_Delay(T);
+  HAL_Delay(15);
   HAL_GPIO_WritePin(CTRL_PORT,(1<<rs_port),GPIO_PIN_SET);
   HAL_GPIO_WritePin(CTRL_PORT,(1<<rw_port),GPIO_PIN_RESET);
   HAL_GPIO_WritePin(DATA_PORT,(0xFF<<data_ports[0]),GPIO_PIN_RESET);
