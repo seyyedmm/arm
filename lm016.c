@@ -1,5 +1,5 @@
 
-#include "lcd.h"
+#include "lm016.h"
 
 void send_command(unsigned char data)
 {
@@ -65,4 +65,16 @@ void lcd_clear(lcd_t * lcd)
   HAL_Delay(5);
   send_command(0x01);
   send_command(0x02);
+}
+
+int main (void)
+{
+ lcd_t lcd;
+ lcd.en_pin = GPIOB_PIN_0;
+ lcd.rs_pin = GPIOB_PIN_1;
+ lcd.data_pins = GPIOA_PIN;
+
+  send_command();
+  lcd_putchar(lcd_t * lcd, uint8_t character)
+
 }
