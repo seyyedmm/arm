@@ -36,7 +36,7 @@ void lcd_puts(lcd_t * lcd, char *str)
   HAL_Delay(5);
   while(*str != 0)
   {
-    lcd_putchar(*str);
+    lcd_putchar(&lcd, *str);
     str++;
   }
 }
@@ -74,7 +74,11 @@ int main (void)
  lcd.rs_pin = GPIOB_PIN_1;
  lcd.data_pins = GPIOA_PIN;
 
-  send_command();
-  lcd_putchar(lcd_t * lcd, uint8_t character)
+  send_command(&lcd);
+  lcd_putchar(&lcd);
+  lcd_init(&lcd);
+  lcd_puts(&lcd, "ARM");
+  //lcd_set_curser(&lcd, uint16_t row, uint16_t col)
+  void lcd_clear(&lcd);
 
 }
